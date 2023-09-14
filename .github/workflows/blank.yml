@@ -27,8 +27,17 @@ jobs:
       - name: Setup dotnet
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: |
-            8.0.x
-      - run: dotnet new webapi
-      - run: dotnet run --urls=http://localhost:5000 & (sleep 20 && kill -9 $(lsof -t -i:5000)) 
+         dotnet-version: |
+           8.0.x
+      # - run: dotnet new webapi
+        
+      - run: git clone  https://github.com/uldahlalex/NewsAPITests
+      - run: cd NewsAPITests && dotnet test
+
+      
+      
+      
+      
+      
+     # - run: dotnet run --urls=http://localhost:5000 & (sleep 20 && kill -9 $(lsof -t -i:5000)) 
 
